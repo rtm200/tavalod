@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Luna - Party</title>
+  <link rel="stylesheet" href="client.css">
+  <link rel="stylesheet" href="client.css">
+  <link rel="stylesheet" href="hextech.min.css">
+  <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+</head>
+
+<body>
+  <div class="popupBlur"></div>
+  <section id="home">
+    <header>
+      <div class="menu"><i class='bx bx-menu'></i></div>
+      <ul>
+        <h3>
+          <svg xmlns="http://www.w3.org/2000/svg" width="30" height="32" viewBox="0 0 30 32" fill="none" class="league">
+            <g>
+              <path
+                d="M1.80644 9.75049C0.655032 11.8373 0 14.2271 0 16.7683C0 19.3095 0.655032 21.7015 1.80644 23.7883V9.75049Z"
+                fill="#C28F2C"></path>
+              <path
+                d="M15 2.02222C13.7829 2.02222 12.602 2.16921 11.4688 2.43647V4.75718C12.5907 4.44093 13.7738 4.26721 15 4.26721C22.0218 4.26721 27.7153 9.84627 27.7153 16.7305C27.7153 19.8307 26.5571 22.6659 24.6464 24.8463L24.2838 26.118L23.4814 28.9331C27.4184 26.2761 30.0023 21.8195 30.0023 16.7705C30 8.62355 23.2843 2.02222 15 2.02222Z"
+                fill="#C28F2C"></path>
+              <path
+                d="M11.4688 24.4209H22.9737H23.2253C25.1723 22.4209 26.3713 19.7126 26.3713 16.7305C26.3713 10.5746 21.2806 5.58569 15 5.58569C13.767 5.58569 12.5816 5.78168 11.4688 6.1358V24.4209Z"
+                fill="#C28F2C"></path>
+              <path d="M10.1088 0H1.55029L3.16634 3.29844V28.7038L1.55029 32H21.1922L22.9737 25.7572H10.1088V0Z"
+                fill="#C28F2C"></path>
+            </g>
+          </svg>
+        </h3>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#main">Who We Are</a></li>
+        <li><a href="#main">Contact Us</a></li>
+      </ul>
+      <a href="../index.html" class="login">Login</a>
+      <div class="sidebar">
+        <div class="close-btn"><i class='bx bx-x'></i></div>
+        <div>
+          <h3>
+            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="32" viewBox="0 0 30 32" fill="none"
+              class="league">
+              <g>
+                <path
+                  d="M1.80644 9.75049C0.655032 11.8373 0 14.2271 0 16.7683C0 19.3095 0.655032 21.7015 1.80644 23.7883V9.75049Z"
+                  fill="#C28F2C"></path>
+                <path
+                  d="M15 2.02222C13.7829 2.02222 12.602 2.16921 11.4688 2.43647V4.75718C12.5907 4.44093 13.7738 4.26721 15 4.26721C22.0218 4.26721 27.7153 9.84627 27.7153 16.7305C27.7153 19.8307 26.5571 22.6659 24.6464 24.8463L24.2838 26.118L23.4814 28.9331C27.4184 26.2761 30.0023 21.8195 30.0023 16.7705C30 8.62355 23.2843 2.02222 15 2.02222Z"
+                  fill="#C28F2C"></path>
+                <path
+                  d="M11.4688 24.4209H22.9737H23.2253C25.1723 22.4209 26.3713 19.7126 26.3713 16.7305C26.3713 10.5746 21.2806 5.58569 15 5.58569C13.767 5.58569 12.5816 5.78168 11.4688 6.1358V24.4209Z"
+                  fill="#C28F2C"></path>
+                <path d="M10.1088 0H1.55029L3.16634 3.29844V28.7038L1.55029 32H21.1922L22.9737 25.7572H10.1088V0Z"
+                  fill="#C28F2C"></path>
+              </g>
+            </svg>
+          </h3>
+          <a href="#home">Home</a>
+          <a href="#main">Who We Are</a>
+          <a href="#main">Contact Us</a>
+        </div>
+      </div>
+    </header>
+    <div class="box">
+      <h5>Luna Birthday Event</h5>
+      <h3>New Game Mode:<br>Mental</h3>
+      <p>Answer the questions, win the challenges and get your prize</p>
+      <a href="#main" class="playBtn">Play Now</a>
+    </div>
+  </section>
+  <section id="main">
+    <div class="hanger">
+      <h4>Game Phase:</h4>
+      <p>Start to read about the phases and then start the match!</p>
+    </div>
+    <div class="container">
+      <div class="card" id="ahri">
+        <div class="imgBox">
+          <img src="assets/1.jpg" alt="Card image">
+        </div>
+        <p>Phase One: Family</p>
+        <div class="hover ahri">
+          <h3 style="color: #F092A4;">Phase One: Family</h3>
+          <p id="ahri-text"></p>
+          <div class="hover_button">
+            <button></button>
+            <button>Next <i class='bx bx-chevron-right'></i></button>
+          </div>
+        </div>
+      </div>
+
+      <div class="card" id="ser">
+        <div class="imgBox">
+          <img src="assets/3.jpg" alt="Card image">
+        </div>
+        <p>Phase Two: Friendship</p>
+        <div class="hover ser">
+          <h3 style="color: #CBB700;">Phase Two: Friendship</h3>
+          <p id="ser-text"></p>
+          <div class="hover_button">
+            <button><i class='bx bx-chevron-left'></i> Prev</button>
+            <button>Next <i class='bx bx-chevron-right'></i></button>
+          </div>
+        </div>
+      </div>
+
+      <div class="card" id="eve">
+        <div class="imgBox">
+          <img src="assets/4.jpg" alt="Card image">
+        </div>
+        <p>Phase Three: Brotherhood</p>
+        <div class="hover eve">
+          <h3 style="color: #CC2EA8;">Phase Three: Brotherhood</h3>
+          <p id="eve-text"></p>
+          <div class="hover_button">
+            <button><i class='bx bx-chevron-left'></i> Prev</button>
+            <button>Next <i class='bx bx-chevron-right'></i></button>
+          </div>
+        </div>
+      </div>
+
+      <div class="card" id="akali">
+        <div class="imgBox">
+          <img src="assets/2.jpg" alt="Card image">
+        </div>
+        <p>Phase Four: Ye Mojoode Ezafe</p>
+        <div class="hover akali">
+          <h3 style="color: #4F31BF;">Phase Three: absurdity</h3>
+          <p id="akali-text"></p>
+          <div class="hover_button">
+            <button><i class='bx bx-chevron-left'></i> Prev</button>
+            <button></button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <button class="button is-primary" id="start">Start Tutorial</button>
+  </section>
+</body>
+
+<script>
+  function startTyped(selector, text) {
+    return new Typed(selector, {
+      strings: [text],
+      typeSpeed: 10,
+      showCursor: false
+    });
+  }
+
+  $('#ahri').hover(
+    function() {
+      if (window.typedAhri) window.typedAhri.destroy();
+      window.typedAhri = startTyped('#ahri-text', 'Start to read about the phases and then start the match! Start to read about the phases and then start the match!');
+    }
+  );
+
+  $('#ser').hover(
+    function() {
+      if (window.typedSer) window.typedSer.destroy();
+      window.typedSer = startTyped('#ser-text', 'Start to read about the phases and then start the match! Start to read about the phases and then start the match phases and then start the match...');
+    }
+  );
+
+  $('#eve').hover(
+    function() {
+      if (window.typedEve) window.typedEve.destroy();
+      window.typedEve = startTyped('#eve-text', 'Start to read about the phases and then start the match! Start to read about the phases and then start the match phases and then start the match...');
+    }
+  );
+
+  $('#akali').hover(
+    function() {
+      if (window.typedAkali) window.typedAkali.destroy();
+      window.typedAkali = startTyped('#akali-text', 'Start to read about the phases and then start the match! Start to read about the phases and then start the match!');
+    }
+  );
+</script>
+<script>
+  $('.card').hover(
+    function () {
+      $(this).find('.hover').stop(true, true).fadeIn(300);
+    },
+    function () {
+      $(this).find('.hover').stop(true, true).fadeOut(30);
+    }
+);
+
+  $(document).ready(function () {
+    $('.menu').click(function () {
+      $('.sidebar').css('left', '0');
+      $('.popupBlur').css('display', 'block');
+    });
+    $('.sidebar .close-btn').click(function () {
+      $('.sidebar').css('left', '-250px');
+      $('.popupBlur').css('display', 'none');
+    });
+    $('.popupBlur').click(function () {
+      $('.sidebar').css('left', '-250px');
+      $('.popupBlur').css('display', 'none');
+    });
+
+    //levels
+    $(document).ready(function () {
+  $('.card').removeClass('active').addClass('disabled');
+
+  $('#start').click(function () {
+    if ($(this).text() === 'Start Tutorial') {
+      $('.card').first().addClass('active').removeClass('disabled');
+      $(this).addClass('disabled');
+    } else if ($(this).text() === 'Start Match') {
+      window.location.href = 'quiz.html';
+    }
+  });
+
+  function manageCards(currentCard, nextCard) {
+    $(currentCard).addClass('disabled').removeClass('active');
+    $(nextCard).removeClass('disabled').addClass('active');
+  }
+
+  $('.hover_button button:contains("Next")').click(function () {
+    var currentCard = $(this).closest('.card');
+    var nextCard = currentCard.next('.card');
+
+    if (nextCard.length) {
+      manageCards(currentCard, nextCard);
+      if (nextCard.is('#akali')) {
+        setTimeout(function () {
+          $('#start').removeClass('disabled').text('Start Match');
+        }, 1000);
+      }
+    }
+  });
+
+  $('.hover_button button:contains("Prev")').click(function () {
+    var currentCard = $(this).closest('.card');
+    var prevCard = currentCard.prev('.card');
+
+    if (prevCard.length) {
+      manageCards(currentCard, prevCard);
+    }
+  });
+
+  let hoverTimer;
+  $('#akali').hover(
+    function () {
+      hoverTimer = setTimeout(function () {
+        $('#start').removeClass('disabled').text('Start Match');
+      }, 1000);
+    },
+    function () {
+      clearTimeout(hoverTimer);
+    }
+  );
+});
+
+  });
+
+</script>
+</html>

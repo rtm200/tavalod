@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luna - Party</title>
+    <link rel="stylesheet" href="card.css">
+    <link rel="stylesheet" href="fonts.css">
+</head>
+<body>
+    <h4 class="score" id="score"></h4>
+    <div class="cards">
+        <div class="card" id="20">
+            <div class="card-inner">
+                <img src="assets/card.png" class="card-img card-front">
+                <img src="assets/dress.png" class="card-img card-back">
+            </div>
+        </div>
+        <div class="card" id="40">
+            <div class="card-inner">
+                <img src="assets/card.png" class="card-img card-front">
+                <img src="assets/dress.png" class="card-img card-back">
+            </div>
+        </div>
+        <div class="card" id="60">
+            <div class="card-inner">
+                <img src="assets/card.png" class="card-img card-front">
+                <img src="assets/mf.png" class="card-img card-back">
+            </div>
+        </div>
+        <div class="card" id="80">
+            <div class="card-inner">
+                <img src="assets/card.png" class="card-img card-front">
+                <img src="assets/steam.png" class="card-img card-back">
+            </div>
+        </div>
+        <div class="card" id="100">
+            <div class="card-inner">
+                <img src="assets/card.png" class="card-img card-front">
+                <img src="assets/dress.png" class="card-img card-back">
+            </div>
+        </div>
+    </div>
+</body>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function() {
+        let savedScore = localStorage.getItem('quizScore');
+        
+        if (!savedScore) {
+            savedScore = 0;
+        }
+
+        $('#score').text(`Score: ${savedScore}%`);
+
+        $('.card').each(function() {
+            let cardId = parseInt($(this).attr('id'));
+            if (cardId > savedScore) {
+                $(this).addClass('disabled');
+            }
+        });
+
+        $('.card-inner').click(function() {
+            let cardId = parseInt($(this).parent().attr('id'));
+            $(this).addClass('flipped');
+        });
+    });
+</script>
+</html>

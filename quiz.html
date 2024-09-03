@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Luna - Party</title>
+  <link rel="stylesheet" href="quiz.css">
+  <link rel="stylesheet" href="fonts.css">
+  <link rel="stylesheet" href="hextech.min.css">
+  <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+</head>
+<body>
+  <section id="main">
+    <div class="hanger">
+      <h4>Phase One:<span id="phase"></span></h4>
+      <p>Start the game and answer to the questions</p>
+    </div>
+    <div class="container">
+      <div class="imgBox">
+        <img src="assets/${img}" alt="Card image">
+      </div>
+      <div class="qBox">
+        <div class="qbox-body">
+          <div class="js-quiz"></div> <!-- Placeholder for the quiz form -->
+          <div class="js-answer" style="display:none;"></div> <!-- Placeholder for results -->
+        </div>
+      </div>
+    </div>
+  </section>
+</body>
+<script>
+  let STORE = [
+    //medi
+  {
+    question: "Medi: Skin Morede Alagheye Medi to lol (evelyn)?",
+    answer: ["Spirit Blossom", "Prestige High Noon", "Prestige Kda", "Kda All Out"],
+    correctAnswer: "Prestige Kda",
+    img: "4.jpg"
+  },
+  {
+    question: "Medi: Noob champ tarin champ to lol?",
+    answer: ["Garen", "Malphite", "Darius", "Mater yi"],
+    correctAnswer: "Garen",
+    img: "4.jpg"
+  },
+  {
+    question: "Medi: roo mokh tarin adc baraye yek be yak ba man ke jelosh mibazam?",
+    answer: ["Varus", "Draven", "Jinx", "Mf"],
+    correctAnswer: "Varus",
+    img: "4.jpg"
+  },
+  {
+    question: "Medi: Age miraftam be zaman gozashte che champi ro main mishodam?",
+    answer: ["Lee sin", "Lilia", "Viego", "Nocturne"],
+    correctAnswer: "Viego",
+    img: "4.jpg"
+  },
+  {
+    question: "Medi: Cringe tarin champ league az nazar man?",
+    answer: ["Lulu", "Mf", "Lux", "Volibear"],
+    correctAnswer: "Lux",
+    img: "4.jpg"
+  },
+  {
+    question: "Medi: Crush man baad az evelyn va irelia kodoom yeki az champaye zire?",
+    answer: ["Akali", "Diana", "Syndra", "Vayne"],
+    correctAnswer: "Diana",
+    img: "4.jpg"
+  },
+  {
+    question: "Medi: Ult evelyn age HP enemy zire chand darsad bashe damage burst mishe?",
+    answer: ["40%", "30%", "20%", "25%"],
+    correctAnswer: "30%",
+    img: "4.jpg"
+  },
+  {
+    question: "Medi: Benazar man bozorg tarin moshkele evelyn chie?",
+    answer: ["damage kam ult", "joz ult hich level dash nadare", "hamechish moshkele (bayad eve ghablio biaran)", "zaman ziad cast shodan charm w"],
+    correctAnswer: "hamechish moshkele (bayad eve ghablio biaran)",
+    img: "4.jpg"
+  },
+  {
+    question: "Medi: Evelyn to level 1 jam damage q hash + recast hayi ke mikone cheghadre?",
+    answer: ["180", "120", "150", "210"],
+    correctAnswer: "180",
+    img: "4.jpg"
+  },
+  {
+    question: "Medi: Streamer morede alaghe man kie",
+    answer: ["Antony", "Broxah", "Dante", "Keshaeuw"],
+    correctAnswer: "Broxah",
+    img: "4.jpg"
+  },
+  //yura
+  {
+    question: "Yura: Yura yeki az raz haye luna ro be kodoom yek az gozine haye zir lo dade?",
+    answer: ["Medi", "Mari", "Mani", "Hichkodam", "All"],
+    correctAnswer: "All",
+    img: "1.jpg"
+  },
+  {
+    question: "Yura: Yura age majbur bashe tu ye atish suzi yeki az gozine haye ziro baraye nejat entekhab kone un kie?",
+    answer: ["Maman", "Baba", "Luna", "Arsalan"],
+    correctAnswer: "Arsalan",
+    img: "1.jpg"
+  },
+  {
+    question: "Yura: Aya yura gay'e?",
+    answer: ["Bale", "Kheir", "Shayad"],
+    correctAnswer: "Shayad",
+    img: "1.jpg"
+  },
+  {
+    question: "Yura: Salade morede alagheye yura chie?",
+    answer: ["Salad shirazi", "Salad kalam va havij", "Salad fasl"],
+    correctAnswer: "Salad fasl",
+    img: "1.jpg"
+  },
+  {
+    question: "Yura: Morgh morede alagheye yura?",
+    answer: ["Beryuni", "Sokhari", "Jooje", "Grill"],
+    correctAnswer: "Sokhari",
+    img: "1.jpg"
+  },
+  {
+    question: "Yura: Yura az kodoom az raftarat motenafere?",
+    answer: ["ignore kardanet vaghti bahat harf mizane", "vaghti adaye fahmidan chizi ke mige ro dar miyari vali nemifahmi", "vaghti ghol midi amal nemikoni", "yura az hame raftarat motenafere"],
+    correctAnswer: "vaghti ghol midi amal nemikoni",
+    img: "1.jpg"
+  },
+  {
+    question: "Yura: Yura kio bishtar az hame doost dare",
+    answer: ["Mehdie", "Elina", "Heliya", "Tara"],
+    correctAnswer: "Mehdie",
+    img: "1.jpg"
+  },
+  {
+    question: "Yura: Yura doost dare ba luna be koja safar kone",
+    answer: ["Faranse", "Italia", "Japon", "Afghanestan"],
+    correctAnswer: "Japon",
+    img: "1.jpg"
+  },
+  // pari
+  {
+    question: "Pari: Ba kodum onsor ertebate amigh tari daram?",
+    answer: ["Atash", "Water", "Khak", "Bad"],
+    correctAnswer: "Water",
+    img: "3.jpg"
+  },
+  {
+    question: "Pari: Kodum ro entekhab mikonam?",
+    answer: ["Buye baran", "Buye ghahve", "Buye gole roz", "Buye chocolate"],
+    correctAnswer: "Buye baran",
+    img: "3.jpg"
+  },
+  {
+    question: "Pari: Kodum Taamo bishtar dust daram?",
+    answer: ["Talkh", "Torsh", "Shirin", "Shur"],
+    correctAnswer: "Torshl",
+    img: "3.jpg"
+  },
+  {
+    question: "Pari: Be nazare man zendegi ..........",
+    answer: ["Rozane nuri ast ke dar siahi haye jangal penhan shode ast", "Tire va tar ast por az gham haye bi payan", "Zibast va har tor ke bashad dust dashtani ast", "Hezartuye tariki ast ke to dar an gom shodei !"],
+    correctAnswer: "Rozane nuri ast ke dar siahi haye jangal penhan shode ast",
+    img: "3.jpg"
+  },
+  {
+    question: "Pari: Agar gol budam kodam gol budam?",
+    answer: ["Rose", "Nillufare Abi", "Aftaab gardun", "Shabdar"],
+    correctAnswer: "Nillufare Abi",
+    img: "3.jpg"
+  },
+  {
+    question: "Pari: Kojaro baraye tanhaii entekhaab mikonam?",
+    answer: ["Tu dele jangal zire derakht", "Ruye sakhre ruberu darya", "Tuye otagh", "5 star Hotel"],
+    correctAnswer: "Ruye sakhre ruberu darya",
+    img: "3.jpg"
+  },
+  {
+    question: "Pari: Moghe bikari chikar mikonam?",
+    answer: ["Game mizanam", "Be dustam zang mizanam", "Music gush midam", "Film mibinam"],
+    correctAnswer: "Music gush midam",
+    img: "3.jpg"
+  },
+  {
+    question: "Pari: Kodum selah ro entekhab mikonam?",
+    answer: ["Shamshir", "Tofang", "Tir Kamun", "Chaghu"],
+    correctAnswer: "Tir Kamun",
+    img: "3.jpg"
+  },
+  {
+    question: "Pari: Style morede alagham chetorie?",
+    answer: ["Dark academia", "Casual", "Lashh", "Bohemian"],
+    correctAnswer: "Dark academia",
+    img: "3.jpg"
+  },
+ {
+    question: "Pari: Kodum ro entekhaab mikonam",
+    answer: ["Adamaye bad ziadan ama miuneshun adamaye khub ham hast", "Adamaye khub ziadan ama miuneshun adamaye bad ham hast", "Hame adam ha khuban", "Hame adam ha badan"],
+    correctAnswer: "Adamaye bad ziadan ama miuneshun adamaye khub ham hast",
+    img: "3.jpg"
+  },
+  //ruzbe
+  {
+    question: "Ruzbe: Pet morede alagham ?",
+    answer: ["Gorbe", "Sag", "Meti", "Sina"],
+    correctAnswer: "Sag",
+    img: "2.jpg"
+  },
+  {
+    question: "Ruzbe: Champ morede alagham to lol?",
+    answer: ["Jax", "Mundo", "illaoi", "Sona"],
+    correctAnswer: "illaoi",
+    img: "2.jpg"
+  },
+  {
+    question: "Ruzbe: fasle morede alagham?",
+    answer: ["Payiz", "Zemestoon", "Bahar", "Tabestoon"],
+    correctAnswer: "Payiz",
+    img: "2.jpg"
+  },
+  {
+    question: "Ruzbe: Nooshidani morede alagham ?",
+    answer: ["Cola", "Shirmoz", "Ghahve", "Shir tootfarangi"],
+    correctAnswer: "Shir tootfarangi",
+    img: "2.jpg"
+  },
+  {
+    question: "Ruzbe: alan daram be chi fek mikonam?",
+    answer: ["Kafhse medi", "Kafshe Khodet", "Koone sina", "Metro"],
+    correctAnswer: "metro",
+    img: "2.jpg"
+  },
+  {
+    question: "Ruzbe: Behtarin game'i ke bazi kardam?",
+    answer: ["lol", "valo", "battlefield 1 ", "csgo"],
+    correctAnswer: "battlefield 1",
+    img: "2.jpg"
+  },
+  {
+    question: "Ruzbe: Daram ba zendegim chikar mikonam?",
+    answer: ["mirinam toosh", "mirinam roosh", "tanhayi miram pitza mikhoram", "kar khasi nemikonam aksaran miram biroon donbal shadi"],
+    correctAnswer: "kar khasi nemikonam aksaran miram biroon donbal shadi",
+    img: "2.jpg"
+  },
+  {
+    question: "Ruzbe: flash man ro kodoom dokmast?",
+    answer: ["D", "F", "Esc", "Space"],
+    correctAnswer: "Space",
+    img: "2.jpg"
+  },
+  {
+    question: "Ruzbe: Range morede alagham?",
+    answer: ["sabz", "zard", "ghahveyi", "siyah"],
+    correctAnswer: "sabz",
+    img: "2.jpg"
+  },
+  {
+    question: "Ruzbe: In yekiam pooche ?",
+    answer: ["khe", "khe", "khe", "khe"],
+    correctAnswer: "khe",
+    img: "2.jpg"
+  }
+
+];
+
+phaseElement = document.getElementById('phase');
+STORE.forEach(element => {
+  phaseElement.textContent = '';
+  if (element.question.includes('Medi')) {
+    phaseElement.textContent = 'Brotherhood';
+  }
+  else if (element.question.includes('Yura')) {
+    phaseElement.textContent = 'Family';
+  }
+  else if (element.question.includes('Pari')) {
+    phaseElement.textContent = 'Friendship';
+  }
+  else if (element.question.includes('Ruzbe')) {
+    phaseElement.textContent = 'Ye Mojoode Ezafe';
+  }
+  else {
+    phaseElement.textContent = 'Unknown';
+  }
+});
+
+let qNumber = 0;
+let score = 0;
+
+generateQuizQuestion();
+
+function setPhase(question) {
+  if (question.includes('Medi')) {
+    phaseElement.textContent = 'Brotherhood';
+  } else if (question.includes('Yura')) {
+    phaseElement.textContent = 'Family';
+  } else if (question.includes('Pari')) {
+    phaseElement.textContent = 'Friendship';
+  } else if (question.includes('Ruzbe')) {
+    phaseElement.textContent = 'Ye Mojoode Ezafe';
+  } else {
+    phaseElement.textContent = 'Unknown';
+  }
+}
+
+function generateQuizQuestion() {
+  if (qNumber < STORE.length) {
+    let question = $(`
+      <form class="js-quiz-form">
+        <div class="qbox-header"></div>
+        <span></span>
+        <legend class="question">${STORE[qNumber].question}</legend>
+        <ol class="radiogroup" role="radiogroup" aria-labelledby="question">
+          ${STORE[qNumber].answer.map((answerValue, answerIndex) => `
+            <li>
+              <label for="${answerValue}">
+                <input type="radio" id="${answerValue}" name="answer" tabindex="${answerIndex}" value="${answerValue}" required>
+                ${answerValue}
+              </label>
+            </li>`).join('')}
+        </ol>
+        <button type="submit" id="button-submit">Next <i class='bx bx-chevron-right'></i></button>
+      </form>
+    `);
+
+    $('.js-quiz').html(question);
+    questionNumber();
+    
+    // Update phase and image dynamically
+    setPhase(STORE[qNumber].question);
+    $('.imgBox img').attr('src', `assets/${STORE[qNumber].img}`);
+  } else {
+    displayResults();
+  }
+}
+
+function questionChecker() {
+  $('body').on('submit', '.js-quiz-form', function (event) {
+    event.preventDefault();
+    if ($('input:radio').is(':checked')) {
+      let selectedAnswer = $("input[name=answer]:checked").val();
+      if (selectedAnswer === STORE[qNumber].correctAnswer) {
+        scoreKeeper();
+      }
+      nextQuestion();
+    } else {
+      alert('Please select an answer.');
+    }
+  });
+}
+
+function questionNumber() {
+  $('.qbox-header').text(`Question ${qNumber + 1}`);
+}
+
+function scoreKeeper() {
+  score++;
+}
+
+function nextQuestion() {
+  qNumber++;
+  $('.js-quiz').empty();
+  generateQuizQuestion();
+}
+
+function displayResults() {
+  let finalScore = Math.floor((score / STORE.length) * 100);
+  localStorage.setItem('quizScore', finalScore);
+
+  $('.js-quiz').html(`
+    <h2 class="result_title">Quiz Results</h2>
+    <h3>Your score is ${finalScore}%</h3>
+    <p>You got ${score} out of ${STORE.length} questions right.</p>
+    <button type="button" id="button-restart">Prize</button>
+  `);
+}
+
+function restartQuiz() {
+  $('body').on('click', '#button-restart', function () {
+    window.location.href = 'card.html';
+  });
+}
+
+function handleQuizApp() {
+  questionChecker();
+  restartQuiz();
+}
+
+$(handleQuizApp);
+
+
+</script>
+</html>
