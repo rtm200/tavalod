@@ -180,6 +180,8 @@ body {
 
 @media (max-width: 1024px) {}
 
-@media (max-width: 768px) {}
+@media (max-width: 768px) {
+	.imgBox{ display:none;}
+}
 
 @media (max-width: 480px) {}
