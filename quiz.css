@@ -181,7 +181,18 @@ body {
 @media (max-width: 1024px) {}
 
 @media (max-width: 768px) {
-	.imgBox{ display:none;}
+.imgBox{
+    display:none;
+}
+.qBox::before{
+    left: 0px;
+    border-top: none;
+    border-right: none;
+    border-bottom: none;
+   }
+.qBox{
+    width: 80%;
+}
 }
 
 @media (max-width: 480px) {}
