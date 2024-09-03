@@ -66,6 +66,7 @@ body {
     min-width: 500px;
 }
 .qBox{
+    width: 700px;
     position: relative;
     background-color: white;
     padding: 1rem;
@@ -149,6 +150,9 @@ body {
     justify-content: center;
 }
 /* bubble */
+.imgBox{
+    z-index: 2;
+}
 .imgBox img{
     background-color: black;
     width: 200px;
