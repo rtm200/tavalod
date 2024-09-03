@@ -181,6 +181,18 @@ body {
 @media (max-width: 1024px) {}
 
 @media (max-width: 768px) {
+	.hanger {
+        width: 100%;
+        border-radius: 0;
+    }
+
+    .hanger h4 {
+        font-size: 20px;
+    }
+
+    .hanger p {
+        font-size: 14px;
+    }
 .imgBox{
     display:none;
 }
@@ -192,6 +204,7 @@ body {
    }
 .qBox{
     width: 80%;
+    margin: 0 auto;
 }
 }
 
