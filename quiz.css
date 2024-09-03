@@ -84,6 +84,9 @@ body {
 	border-right: 20px solid #fff;
 	border-bottom: 10px solid transparent;
 }
+.question{
+	margin-bottom: 10px;
+}
 .qbox-header{
     color: #F092A4;
     font-size: 20px;
