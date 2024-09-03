@@ -16,7 +16,7 @@
 <body>
   <section id="main">
     <div class="hanger">
-      <h4>Phase One:<span id="phase"></span></h4>
+      <h4><span id="phase"></span></h4>
       <p>Start the game and answer to the questions</p>
     </div>
     <div class="container">
@@ -302,13 +302,13 @@ generateQuizQuestion();
 
 function setPhase(question) {
   if (question.includes('Medi')) {
-    phaseElement.textContent = 'Brotherhood';
+    phaseElement.textContent = 'Phase One: Brotherhood';
   } else if (question.includes('Yura')) {
-    phaseElement.textContent = 'Family';
+    phaseElement.textContent = 'Phase Three: Family';
   } else if (question.includes('Pari')) {
-    phaseElement.textContent = 'Friendship';
+    phaseElement.textContent = 'Phase Two: Friendship';
   } else if (question.includes('Ruzbe')) {
-    phaseElement.textContent = 'Valla Nemidoonam';
+    phaseElement.textContent = 'Phase Four: Valla Nemidoonam';
   } else {
     phaseElement.textContent = 'Unknown';
   }
